@@ -108,7 +108,7 @@ public class MpqRelaxedBurstCost {
         }
         q = MessagePassingQueueByTypeFactory.createQueue(qType, 128 * 1024);
         consumer = new Consumer(q);
-        consumerThread = new Thread(consumer);
+        consumerThread = Thread.ofVirtual(consumer);
         consumerThread.start();
     }
 

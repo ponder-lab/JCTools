@@ -83,7 +83,7 @@ public class MpqBurstCost
         {
             consumers[i] = new Consumer(q, i);
         }
-        consumerExecutor = Executors.newFixedThreadPool(consumerCount);
+        consumerExecutor = Executors.newVirtualThreadPerTaskExecutor();
     }
 
     @Setup(Level.Iteration)
