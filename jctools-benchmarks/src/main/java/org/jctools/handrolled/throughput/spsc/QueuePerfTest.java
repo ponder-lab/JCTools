@@ -46,7 +46,7 @@ public class QueuePerfTest {
 
     private static long performanceRun(int runNumber, Queue<Integer> queue) throws Exception {
         Producer p = new Producer(queue);
-        Thread thread = new Thread(p);
+        Thread thread = Thread.ofVirtual(p);
         thread.start();// producer will timestamp start
 
         Integer result;

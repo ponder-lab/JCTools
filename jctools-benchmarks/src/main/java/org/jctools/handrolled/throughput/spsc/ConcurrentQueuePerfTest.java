@@ -44,7 +44,7 @@ public class ConcurrentQueuePerfTest {
 
     private static long performanceRun(int runNumber, ConcurrentQueue<Integer> queue) throws Exception {
         Producer p = new Producer(queue);
-        Thread thread = new Thread(p);
+        Thread thread = Thread.ofVirtual(p);
         thread.start(); // producer will timestamp start
 
         ConcurrentQueueConsumer<Integer> consumer = queue.consumer();

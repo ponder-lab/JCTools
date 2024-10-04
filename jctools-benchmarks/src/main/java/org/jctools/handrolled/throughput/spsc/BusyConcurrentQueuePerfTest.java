@@ -44,7 +44,7 @@ public class BusyConcurrentQueuePerfTest {
 
     private static long performanceRun(final int runNumber, final ConcurrentQueue<Integer> queue) throws Exception {
         final Producer p = new Producer(queue);
-        final Thread thread = new Thread(p);
+        final Thread thread = Thread.ofVirtual(p);
         thread.start();
         final ConcurrentQueueConsumer<Integer> consumer = queue.consumer();
         Integer result;
